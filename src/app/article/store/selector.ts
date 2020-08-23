@@ -1,21 +1,21 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { FeedStateInterface } from '../types/feedState.interface';
+import { ArticleStateInterface } from 'src/app/article/types/articleState.interface';
 import { AppStateInterface } from 'src/app/shared/types/appTypes.interface';
 
-export const feedFeatureSelector = createFeatureSelector<
+export const articleFeatureSelector = createFeatureSelector<
   AppStateInterface,
-  FeedStateInterface
->('feed');
+  ArticleStateInterface
+>('article');
 
 export const isLoadingSelector = createSelector(
-  feedFeatureSelector,
-  (feedState: FeedStateInterface) => feedState.isLoading
+  articleFeatureSelector,
+  (articleState: ArticleStateInterface) => articleState.isLoading
 );
-export const feedSelector = createSelector(
-  feedFeatureSelector,
-  (feedState: FeedStateInterface) => feedState.data
+export const articleSelector = createSelector(
+  articleFeatureSelector,
+  (articleState: ArticleStateInterface) => articleState.data
 );
 export const errorSelector = createSelector(
-  feedFeatureSelector,
-  (feedState: FeedStateInterface) => feedState.error
+  articleFeatureSelector,
+  (articleState: ArticleStateInterface) => articleState.error
 );

@@ -11,8 +11,8 @@ import { TopBarModule } from 'src/app/shared/modules/top-bar/top-bar.module';
 import { GlobalFeedModule } from './globalFeed/globalFeed.module';
 
 import { AppComponent } from './app.component';
-import { ArticleComponent } from './article/components/article/article.component';
-import { CommentsComponent } from './article/components/comments/comments.component';
+// import { ArticleComponent } from './article/components/article/article.component';
+// import { CommentsComponent } from './article/components/comments/comments.component';
 import { environment } from 'src/environments/environment';
 
 
@@ -21,9 +21,10 @@ import { AuthInterceptor } from 'src/app/shared/services/authinterceptor.service
 import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 import { YourFeedModule } from 'src/app/yourFeed/yourFeed.module';
 import { TagFeedModule } from './tagFeed/tagFeed.module';
+import { ArticleModule } from 'src/app/article/article.module';
 
 @NgModule({
-  declarations: [AppComponent, ArticleComponent, CommentsComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,7 +42,8 @@ import { TagFeedModule } from './tagFeed/tagFeed.module';
     TopBarModule,
     GlobalFeedModule,
     YourFeedModule,
-    TagFeedModule
+    TagFeedModule,
+    ArticleModule
   ],
   providers: [
     PersistanceService,
