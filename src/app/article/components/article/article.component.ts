@@ -8,6 +8,7 @@ import { ArticleInterface } from 'src/app/shared/types/article.interface';
 import { articleSelector, isLoadingSelector, errorSelector } from 'src/app/article/store/selector';
 import { currentUserSelector } from 'src/app/auth/store/selectors';
 import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
+import { deleteArticleAction } from 'src/app/article/store/actions/delArticle.action';
 
 @Component({
   selector: 'app-article',
@@ -47,7 +48,6 @@ export class ArticleComponent implements OnInit, OnDestroy {
           ([article, currentUser]:
             [ArticleInterface | null,
               CurrentUserInterface | null]) => {
-            console.log('map:', article, currentUser);
             if (!article || !currentUser) {
               return false;
             }
@@ -67,6 +67,10 @@ export class ArticleComponent implements OnInit, OnDestroy {
       .subscribe((article: ArticleInterface | null) => {
         this.article = article;
       });
+  }
+
+  deleteArticle(): void {
+    this.store.dispatch(deleteArticleAction({ slug: this.slug }));
   }
   ngOnDestroy(): void {
     if (this.articleSubscription) {
