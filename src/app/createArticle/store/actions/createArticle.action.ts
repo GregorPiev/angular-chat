@@ -1,0 +1,21 @@
+import { createAction, props } from '@ngrx/store';
+import { ActionTypes } from 'src/app/createArticle/store/actionType';
+import { ArticleInputInterface } from 'src/app/shared/types/articleInput.interface';
+import { ArticleInterface } from 'source/shared/types/article.interface';
+import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
+
+
+export const createArticleAction = createAction(
+  ActionTypes.CREATE_ARTICLE,
+  props<{ articleInput: ArticleInputInterface }>()
+);
+
+export const createArticleSuccessAction = createAction(
+  ActionTypes.CREATE_ARTICLE_SUCCESS,
+  props<{ article: ArticleInterface }>()
+);
+
+export const createArticleFailureAction = createAction(
+  ActionTypes.CREATE_ARTICLE_FAILURE,
+  props<{ errors: BackendErrorsInterface }>()
+);

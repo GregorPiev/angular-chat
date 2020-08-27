@@ -12,6 +12,7 @@ export class BackendErrorMessagesComponent implements OnInit {
   errorMessages: string[];
 
   ngOnInit() {
+    console.log('Error message', this.backendErrorsProps);
     this.errorMessages = Object.keys(this.backendErrorsProps).map(
       (name: string) => {
         const messages = this.backendErrorsProps[name].join(', ');
