@@ -9,13 +9,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { TopBarModule } from 'src/app/shared/modules/top-bar/top-bar.module';
 import { GlobalFeedModule } from './globalFeed/globalFeed.module';
-
 import { AppComponent } from './app.component';
-// import { ArticleComponent } from './article/components/article/article.component';
-// import { CommentsComponent } from './article/components/comments/comments.component';
 import { environment } from 'src/environments/environment';
-
-
 import { PersistanceService } from 'src/app/shared/services/persistance.service';
 import { AuthInterceptor } from 'src/app/shared/services/authinterceptor.service';
 import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
@@ -23,6 +18,7 @@ import { YourFeedModule } from 'src/app/yourFeed/yourFeed.module';
 import { TagFeedModule } from './tagFeed/tagFeed.module';
 import { ArticleModule } from 'src/app/article/article.module';
 import { CreateArticleModule } from './createArticle/createArticle.module';
+import { EditArticleModule } from './editArticle/editArticle.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -45,7 +41,8 @@ import { CreateArticleModule } from './createArticle/createArticle.module';
     YourFeedModule,
     TagFeedModule,
     CreateArticleModule,
-    ArticleModule
+    ArticleModule,
+    EditArticleModule
   ],
   providers: [
     PersistanceService,

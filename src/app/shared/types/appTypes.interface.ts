@@ -3,6 +3,7 @@ import { FeedStateInterface } from '../modules/feed/types/feedState.interface';
 import { TagStateInterface } from 'src/app/shared/modules/tags/types/TagState.interface';
 import { ArticleStateInterface } from 'src/app/article/types/articleState.interface';
 import { createArticleStateInterface } from 'src/app/shared/types/createArticleState.interface';
+import { editArticleStateInterface } from 'src/app/shared/types/editArticleState.interface';
 
 export interface AppStateInterface {
   auth: AuthStateInterface;
@@ -10,4 +11,5 @@ export interface AppStateInterface {
   tags: TagStateInterface;
   article: ArticleStateInterface;
   createArticle: createArticleStateInterface;
+  editArticle: editArticleStateInterface;
 }

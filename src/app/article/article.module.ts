@@ -31,7 +31,6 @@ const routes: Routes = [{
     ErrorMessageModule,
     LoadingModule,
     TagListModule,
-    LoadingModule,
     ErrorMessageModule
   ],
   exports: [],
