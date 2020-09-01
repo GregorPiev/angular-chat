@@ -1,5 +1,5 @@
 import { AuthStateInterface } from '../types/authState.interface';
-import { createReducer, on, Action } from '@ngrx/store';
+import { createReducer, on, Action, State } from '@ngrx/store';
 import {
   registerAction,
   registerSuccessAction,
@@ -22,6 +22,7 @@ import {
   updateCurrentUserSuccessAction,
   updateCurrentUserFailureAction
 } from './actions/updateCurrentUser.action';
+import { logoutAction } from './actions/sync.action';
 
 
 const initialSate: AuthStateInterface = {
@@ -114,6 +115,13 @@ const authReducer = createReducer(
     (state, action): AuthStateInterface => ({
       ...state,
       currentUser: action.currentUser
+    })
+  ),
+  on(
+    logoutAction,
+    (): AuthStateInterface => ({
+      ...initialSate,
+      isLoggedIn: false
     })
   )
 );

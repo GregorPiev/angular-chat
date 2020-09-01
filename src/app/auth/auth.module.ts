@@ -15,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { LoginEffects } from './store/effects/login.effect';
 import { GetCurrentUserEffects } from 'src/app/auth/store/effects/getCurrentUser.effects';
 import { UpdateCurrentUserEffects } from './store/effects/updateCurrentUser.effect';
+import { LogoutEffect } from './store/effects/logout.effect';
 
 const routes: Routes = [
   {
@@ -37,7 +38,8 @@ const routes: Routes = [
       RegisterEffects,
       LoginEffects,
       GetCurrentUserEffects,
-      UpdateCurrentUserEffects
+      UpdateCurrentUserEffects,
+      LogoutEffect
     ])
   ],
   providers: [
