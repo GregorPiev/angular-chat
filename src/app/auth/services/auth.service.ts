@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { AuthResponseInterface } from 'src/app/auth/types/authResponse.interface';
 import { LoginRequestInterface } from './../types/loginRequest.interface';
+// import { triggerAsyncId } from 'async_hooks';
+import { CurrentUserInputInterface } from 'src/app/shared/types/currentUserInput.interface';
 
 @Injectable()
 export class AuthService {
@@ -38,6 +40,14 @@ export class AuthService {
         map(
           (response: AuthResponseInterface) => response.user
         )
+      );
+  }
+
+  updateCurrentUser(currentUserInput: CurrentUserInputInterface): Observable<CurrentUserInterface> {
+    const url = environment.apiUrl + `/user`;
+    return this.http.put(url, currentUserInput)
+      .pipe(
+        map((response: AuthResponseInterface) => response.user)
       );
   }
 }

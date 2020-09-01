@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { ActionTypes } from 'src/app/createArticle/store/actionType';
 import { ArticleInputInterface } from 'src/app/shared/types/articleInput.interface';
-import { ArticleInterface } from 'source/shared/types/article.interface';
+import { ArticleInterface } from 'src/app/shared/types/article.interface';
 import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
 
 

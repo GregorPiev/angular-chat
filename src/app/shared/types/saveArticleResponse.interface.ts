@@ -1,4 +1,4 @@
-import { ArticleInterface } from 'source/shared/types/article.interface';
+import { ArticleInterface } from 'src/app/shared/types/article.interface';
 
 export interface SaveArticleResponseInterface {
   article: ArticleInterface;
