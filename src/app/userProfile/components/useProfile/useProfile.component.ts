@@ -16,6 +16,7 @@ import { CurrentUserInterface } from './../../../shared/types/currentUser.interf
 export class UseProfileComponent implements OnInit, OnDestroy {
   slug: string;
   userProfile: ProfileInterface | null;
+  isFollowing: boolean | null = false;
   isLoading$: Observable<boolean>;
   error$: Observable<string | null>;
   userProfileSubscription: Subscription;
@@ -63,6 +64,11 @@ export class UseProfileComponent implements OnInit, OnDestroy {
       // tslint:disable-next-line: deprecation
       .subscribe((userProfile: ProfileInterface) => {
         this.userProfile = userProfile;
+        console.log(!!this.userProfile)
+        if (!!this.userProfile) {
+          this.isFollowing = this.userProfile.following;
+        }
+
       });
   }
 

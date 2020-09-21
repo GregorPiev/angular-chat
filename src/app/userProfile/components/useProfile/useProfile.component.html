@@ -8,7 +8,18 @@
           <p>{{ userProfile.bio }}</p>
         </div>
 
-        FOLLOW USER BUTTON
+        <button
+          class="btn btn-sm action-btn"
+          [ngClass]="{
+            'btn-outline-secondary': isFollowing === true,
+            'btn-secondary': isFollowing === false
+          }"
+        >
+          <i class="ion-plus-round"></i>
+          <span *ngIf="isFollowing; else notFollowing">Follow user button</span>
+          <ng-template #notFollowing> Unfollow user button </ng-template>
+        </button>
+
         <a
           class="btn btn-sm btn-outline-secondary action-btn"
           [routerLink]="['/settings']"

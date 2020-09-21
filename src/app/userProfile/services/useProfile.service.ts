@@ -20,4 +20,14 @@ export class UseProfileService {
         map((response: GetUserProfileResponseInterface) => response.profile)
       );
   }
+
+  setUserProfileFollower(slug: string): Observable<ProfileInterface> {
+    const url = `${environment.apiUrl}/profiles/${slug}/follow`;
+    return this.http.post(url, {})
+      .pipe(
+        map((response: GetUserProfileResponseInterface) => response.profile)
+      )
+  }
+
+
 }

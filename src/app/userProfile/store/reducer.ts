@@ -1,7 +1,16 @@
 
 import { UserProfileStateInterface } from './../types/userProfileState.interface';
 import { createReducer, on, Action } from '@ngrx/store';
-import { getUserProfileAction, getUserProfileSuccessAction, getUserProfileFailureAction } from './action/getUserProfile.action';
+import {
+  getUserProfileAction,
+  getUserProfileSuccessAction,
+  getUserProfileFailureAction
+} from './action/getUserProfile.action';
+import {
+  setUserProfileFollowAction,
+  setUserProfileFollowSuccessAction,
+  setUserProfileFollowFailureAction
+} from './action/setUserProfileFollowing.action';
 
 const initialState: UserProfileStateInterface = {
   isLoading: false,
@@ -31,6 +40,26 @@ const userProfileReducer = createReducer(
     (state): UserProfileStateInterface => ({
       ...state,
       isLoading: false,
+    })
+  ),
+
+  on(
+    setUserProfileFollowAction,
+    (state): UserProfileStateInterface => ({
+      ...state
+    })
+  ),
+  on(
+    setUserProfileFollowSuccessAction,
+    (state, action): UserProfileStateInterface => ({
+      ...state,
+      data: action.userProfile
+    })
+  ),
+  on(
+    setUserProfileFollowFailureAction,
+    (state): UserProfileStateInterface => ({
+      ...state
     })
   )
 );
